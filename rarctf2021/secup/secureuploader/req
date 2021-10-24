@@ -1,0 +1,40 @@
+POST /upload HTTP/1.1
+Host: http://ip172-18-0-13-c47s59nnjsv000f7m5f0-1337.direct.labs.play-with-docker.com/
+Connection: keep-alive
+Content-Length: 603
+Cache-Control: max-age=0
+Origin: http://ip172-18-0-13-c47s59nnjsv000f7m5f0-1337.direct.labs.play-with-docker.com/
+Upgrade-Insecure-Requests: 1
+DNT: 1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryzc9jfHDS2FPsOdAd
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+Referer: http://ip172-18-0-13-c47s59nnjsv000f7m5f0-1337.direct.labs.play-with-docker.com/
+Accept-Encoding: gzip, deflate
+Accept-Language: en
+
+------WebKitFormBoundaryzc9jfHDS2FPsOdAd
+Content-Disposition: form-data; name="file"; filename="file"
+Content-Type: application/octet-stream
+
+FROM python:3-alpine
+RUN  pip install --no-cache-dir flask gunicorn
+
+RUN addgroup -S ctf && adduser -S ctf -G ctf
+
+COPY app /app
+COPY flag.txt /flag
+WORKDIR /app
+
+RUN chown -R ctf:ctf /app && chmod -R 770 /app
+RUN chown -R root:ctf /app && \
+  chmod -R 770 /app
+
+USER ctf
+ENTRYPOINT ["/app/start.sh"]
+
+------WebKitFormBoundaryzc9jfHDS2FPsOdAd
+Content-Disposition: form-data; name="submit"
+
+Upload File
+------WebKitFormBoundaryzc9jfHDS2FPsOdAd--

